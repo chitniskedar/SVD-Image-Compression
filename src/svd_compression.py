@@ -3,20 +3,20 @@ SVD based image compression.
 
 The main idea of the project is:
 
-                A = U Σ Vᵀ
+                A = U Σ V^T
 
 where:
     A   -> original image matrix
     U   -> left singular vectors
     Σ   -> singular values
-    Vᵀ  -> transpose of right singular vectors
+    V^T  -> transpose of right singular vectors
 
 Instead of keeping all singular values, we keep only the
 largest k singular values.
 
 This gives us a low-rank approximation:
 
-                A_k = U_k Σ_k V_kᵀ
+                A_k = U_k Σ_k V_k^T
 
 The smaller k is, the more we compress the image.
 The larger k is, the more information we retain.
@@ -31,7 +31,7 @@ def apply_svd(matrix):
 
     NumPy decomposes A as:
 
-                    A = U Σ Vᵀ
+                    A = U Σ V^T
 
     Returns:
         U  -> left singular vectors
@@ -50,11 +50,11 @@ def reconstruct_image(U, S, VT, k):
 
     Normally we would reconstruct the entire matrix using:
 
-                    A = U Σ Vᵀ
+                    A = U Σ V^T
 
     But for compression we only use:
 
-                    A_k = U_k Σ_k V_kᵀ
+                    A_k = U_k Σ_k V_k^T
 
     where k is the number of singular values we keep.
 
@@ -79,7 +79,7 @@ def reconstruct_image(U, S, VT, k):
     # Keep only the first k singular values.
     S_k = S[:k]
 
-    # Keep only the first k rows of Vᵀ.
+    # Keep only the first k rows of V^T.
     VT_k = VT[:k, :]
 
     # Σ is a diagonal matrix containing singular values.
@@ -87,9 +87,9 @@ def reconstruct_image(U, S, VT, k):
     Sigma_k = np.diag(S_k)
 
     # Low-rank approximation:
-    #
-    #       A_k = U_k Σ_k V_kᵀ
-    #
+
+    #       A_k = U_k Σ_k V_k^T
+
     reconstructed = U_k @ Sigma_k @ VT_k
 
     return reconstructed

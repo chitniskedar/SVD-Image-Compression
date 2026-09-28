@@ -13,7 +13,9 @@ So an image of size m x n can be represented as a matrix:
 
         A = [a11 a12 ... a1n
              a21 a22 ... a2n
-             ...
+             .
+             .
+             .
              am1 am2 ... amn]
 
 This matrix A is what we pass to SVD.
