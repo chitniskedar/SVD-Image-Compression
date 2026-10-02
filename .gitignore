@@ -1,28 +1,37 @@
-# Python cache
+# ---------- Python ----------
 __pycache__/
 *.py[cod]
-
-# Virtual environment
 venv/
 .venv/
 env/
-
-# Generated output
-output/
-graphs/
-
-# IDE/editor files
-.vscode/
-.idea/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Python build files
 *.egg-info/
 dist/
 build/
+.ipynb_checkpoints/
+
+# ---------- Node / TypeScript frontend ----------
+node_modules/
+*.tsbuildinfo
+.next/
+.vite/
+.turbo/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Environment / secrets ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Generated output ----------
+output/
+# graphs/ is intentionally tracked so the README images show on GitHub
+
+# ---------- IDE / OS ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
