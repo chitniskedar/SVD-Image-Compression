@@ -186,24 +186,6 @@ Aₖ = Uₖ Σₖ Vₖᵀ
          graphs, results.csv               (evaluate.py)
 ```
 ---
-## Installation
-
-**Requirements:** Python 3.8+
-
-```bash
-git clone https://github.com/chitniskedar/SVD-Image-Compression.git
-cd SVD-Image-Compression
-
-# optional but recommended
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
-pip install -r requirements.txt
-```
-
-Dependencies: `numpy`, `Pillow`, `matplotlib`.
-
----
 
 ## Metrics Explained
 
