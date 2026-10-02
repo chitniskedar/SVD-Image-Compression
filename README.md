@@ -97,6 +97,29 @@ For a 512 × 512 image that threshold is about 255.8. Past that point the SVD fo
 
 ---
 
+## Results
+ 
+Run on `input/sample.jpg` (612 × 384 grayscale, 235,008 values):
+ 
+| k | Values stored | Compression ratio | Storage saved | MSE | PSNR (dB) | PNG size (KB) |
+|---|---------------|-------------------|---------------|-----|-----------|---------------|
+| 5   | 4,985  | 47.14× | 97.88% | 452.35 | 21.58 | 78.8 |
+| 20  | 19,940 | 11.79× | 91.52% | 282.59 | 23.62 | 112.3 |
+| 50  | 49,850 | 4.71×  | 78.79% | 156.17 | 26.20 | 130.2 |
+| 100 | 99,700 | 2.36×  | 57.58% | 59.01  | 30.42 | 140.5 |
+ 
+### Visual comparison
+ 
+![Visual comparison](graphs/visual_comparison.png)
+ 
+### Graphs
+ 
+| Compression ratio | MSE | PSNR |
+|---|---|---|
+| ![k vs compression ratio](graphs/compression_ratio.png) | ![k vs MSE](graphs/mse.png) | ![k vs PSNR](graphs/psnr.png) |
+
+---
+
 ## Features
 
 - Grayscale image loading and saving with Pillow
@@ -162,29 +185,6 @@ Aₖ = Uₖ Σₖ Vₖᵀ
     └──► MSE, PSNR, compression ratio,
          graphs, results.csv               (evaluate.py)
 ```
-
----
-## Results
- 
-Run on `input/sample.jpg` (612 × 384 grayscale, 235,008 values):
- 
-| k | Values stored | Compression ratio | Storage saved | MSE | PSNR (dB) | PNG size (KB) |
-|---|---------------|-------------------|---------------|-----|-----------|---------------|
-| 5   | 4,985  | 47.14× | 97.88% | 452.35 | 21.58 | 78.8 |
-| 20  | 19,940 | 11.79× | 91.52% | 282.59 | 23.62 | 112.3 |
-| 50  | 49,850 | 4.71×  | 78.79% | 156.17 | 26.20 | 130.2 |
-| 100 | 99,700 | 2.36×  | 57.58% | 59.01  | 30.42 | 140.5 |
- 
-### Visual comparison
- 
-![Visual comparison](graphs/visual_comparison.png)
- 
-### Graphs
- 
-| Compression ratio | MSE | PSNR |
-|---|---|---|
-| ![k vs compression ratio](graphs/compression_ratio.png) | ![k vs MSE](graphs/mse.png) | ![k vs PSNR](graphs/psnr.png) |
-
 ---
 ## Installation
 
