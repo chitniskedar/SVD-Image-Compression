@@ -234,19 +234,6 @@ A log-scale quality measure. Higher is better, and identical images give infinit
 - Images with large smooth regions compress well at small `k`; highly textured images need a larger `k`.
 
 ---
- 
-
-
-## Implementation Notes
-
-- **Economy SVD.** `np.linalg.svd(matrix, full_matrices=False)` returns `U` as `m × r` and `Vᵀ` as `r × n` instead of full square matrices, which saves memory and time.
-- **Clipping.** Reconstructed values can fall slightly below 0 or above 255, so `save_image` clips to `[0, 255]` before casting to `uint8`. `evaluate.py` applies the same transformation when it has to rebuild a reconstruction, so metrics always match the saved files.
-- **Float precision.** Images are loaded as `float64` so the linear algebra is not affected by integer overflow or rounding.
-- **Grayscale only.** Using a single channel keeps the maths to one matrix.
-- **Headless plotting.** `matplotlib.use("Agg")` lets the scripts run on servers and in CI without a display.
-- **Edge cases handled.** `k` larger than `min(m, n)` is skipped, and `psnr` returns `inf` when MSE is `0`.
-
----
 
 ## Limitations
 
